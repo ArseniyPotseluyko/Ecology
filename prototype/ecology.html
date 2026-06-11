@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экология - Экология и мир</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ecology-page.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <h1>Экология и мир</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="index.html#services">Направления</a></li>
+                    <li><a href="index.html#reserves">Заповедники</a></li>
+                    <li><a href="ecology.html" class="active">Экология</a></li>
+                    <li><a href="index.html#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Баннер страницы -->
+    <section class="page-banner ecology-banner">
+        <div class="container">
+            <h1>Экологическое просвещение</h1>
+            <p>Узнайте больше о природе и вашем влиянии на окружающую среду</p>
+        </div>
+    </section>
+
+    <!-- Калькулятор углеродного следа -->
+    <section class="carbon-calculator">
+        <div class="container">
+            <h2>Калькулятор углеродного следа</h2>
+            <p class="section-intro">Рассчитайте ваш углеродный след и узнайте, как его уменьшить</p>
+            
+            <div class="calculator-wrapper">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label>Транспорт (км в день)</label>
+                        <input type="number" id="transport" placeholder="Например: 20" min="0">
+                        <small>Среднее расстояние на автомобиле</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Электроэнергия (кВт⋅ч в месяц)</label>
+                        <input type="number" id="electricity" placeholder="Например: 150" min="0">
+                        <small>Потребление электричества</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Отходы (кг в неделю)</label>
+                        <input type="number" id="waste" placeholder="Например: 10" min="0">
+                        <small>Количество бытовых отходов</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Питание</label>
+                        <select id="diet">
+                            <option value="meat">Мясоед</option>
+                            <option value="mixed">Смешанное</option>
+                            <option value="vegetarian">Вегетарианец</option>
+                            <option value="vegan">Веган</option>
+                        </select>
+                        <small>Тип питания</small>
+                    </div>
+                    
+                    <button class="btn calculate-btn">Рассчитать</button>
+                </div>
+                
+                <div class="calculator-result">
+                    <div class="result-placeholder">
+                        <div class="result-icon">🌍</div>
+                        <p>Заполните форму и нажмите "Рассчитать"</p>
+                    </div>
+                    <div class="result-content" style="display: none;">
+                        <h3>Ваш углеродный след:</h3>
+                        <div class="result-value">
+                            <span class="co2-value">0</span>
+                            <span class="co2-unit">кг CO₂/год</span>
+                        </div>
+                        <div class="result-comparison">
+                            <p>Это эквивалентно:</p>
+                            <ul>
+                                <li>🌳 <span class="trees-value">0</span> деревьев для компенсации</li>
+                                <li>🚗 <span class="km-value">0</span> км на автомобиле</li>
+                            </ul>
+                        </div>
+                        <div class="result-tips">
+                            <h4>Рекомендации:</h4>
+                            <ul id="tips-list">
+                                <li>Используйте общественный транспорт</li>
+                                <li>Экономьте электроэнергию</li>
+                                <li>Сортируйте отходы</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Экологический квиз -->
+    <section class="eco-quiz">
+        <div class="container">
+            <h2>Экологический квиз</h2>
+            <p class="section-intro">Проверьте свои знания о природе Беларуси</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h3>Вопрос 1 из 5</h3>
+                    <p class="question-text">Какой заповедник Беларуси является самым старым?</p>
+                    
+                    <div class="quiz-options">
+                        <button class="quiz-option">Беловежская пуща</button>
+                        <button class="quiz-option">Березинский заповедник</button>
+                        <button class="quiz-option">Припятский национальный парк</button>
+                        <button class="quiz-option">Нарочанский национальный парк</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%"></div>
+                    </div>
+                    <p class="progress-text">Прогресс: 1/5</p>
+                </div>
+                
+                <div class="quiz-result" style="display: none;">
+                    <div class="result-icon">🎉</div>
+                    <h3>Квиз завершен!</h3>
+                    <p class="score">Ваш результат: <span>0/5</span></p>
+                    <button class="btn restart-btn">Пройти снова</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Информация о биоразнообразии -->
+    <section class="biodiversity-info">
+        <div class="container">
+            <h2>Биоразнообразие Беларуси</h2>
+            <p class="section-intro">Узнайте о богатстве флоры и фауны наших заповедников</p>
+            
+            <div class="bio-tabs">
+                <button class="tab-btn active" data-tab="animals">Животные</button>
+                <button class="tab-btn" data-tab="plants">Растения</button>
+                <button class="tab-btn" data-tab="birds">Птицы</button>
+                <button class="tab-btn" data-tab="rare">Редкие виды</button>
+            </div>
+            
+            <div class="bio-content">
+                <div class="tab-content active" id="animals">
+                    <div class="bio-grid">
+                        <div class="bio-card">
+                            <div class="bio-image">[Фото]</div>
+                            <h3>Европейский зубр</h3>
+                            <p>Символ Беловежской пущи. Самое крупное наземное млекопитающее Европы.</p>
+                            <span class="bio-status status-protected">Охраняется</span>
+                        </div>
+                        <div class="bio-card">
+                            <div class="bio-image">[Фото]</div>
+                            <h3>Бурый медведь</h3>
+                            <p>Обитает в лесных массивах. Находится под охраной.</p>
+                            <span class="bio-status status-protected">Охраняется</span>
+                        </div>
+                        <div class="bio-card">
+                            <div class="bio-image">[Фото]</div>
+                            <h3>Рысь</h3>
+                            <p>Крупная дикая кошка, обитающая в заповедниках.</p>
+                            <span class="bio-status status-rare">Редкий вид</span>
+                        </div>
+                        <div class="bio-card">
+                            <div class="bio-image">[Фото]</div>
+                            <h3>Благородный олень</h3>
+                            <p>Один из самых красивых обитателей белорусских лесов.</p>
+                            <span class="bio-status status-common">Обычный</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="plants">
+                    <div class="bio-grid">
+                        <div class="bio-card">
+                            <div class="bio-image">[Фото]</div>
+                            <h3>Дуб черешчатый</h3>
+                            <p>Древние дубы Беловежской пущи - живые памятники природы.</p>
+                            <span class="bio-status status-protected">Охраняется</span>
+                        </div>
+                        <div class="bio-card">
+                            <div class="bio-image">[Фото]</div>
+                            <h3>Венерин башмачок</h3>
+                            <p>Редкая орхидея, занесенная в Красную книгу.</p>
+                            <span class="bio-status status-rare">Редкий вид</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="birds">
+                    <p class="placeholder-text">Информация о птицах заповедников...</p>
+                </div>
+                
+                <div class="tab-content" id="rare">
+                    <p class="placeholder-text">Информация о редких видах...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Экологические советы -->
+    <section class="eco-tips">
+        <div class="container">
+            <h2>Экологические советы</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">♻️</div>
+                    <h3>Сортируйте отходы</h3>
+                    <p>Разделяйте мусор на пластик, бумагу, стекло и органику</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">💡</div>
+                    <h3>Экономьте энергию</h3>
+                    <p>Выключайте свет и приборы, когда они не используются</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🚲</div>
+                    <h3>Используйте велосипед</h3>
+                    <p>Передвигайтесь на велосипеде или пешком на короткие расстояния</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🌱</div>
+                    <h3>Сажайте деревья</h3>
+                    <p>Участвуйте в акциях по озеленению и посадке деревьев</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">💧</div>
+                    <h3>Берегите воду</h3>
+                    <p>Закрывайте кран и используйте воду рационально</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🛍️</div>
+                    <h3>Откажитесь от пластика</h3>
+                    <p>Используйте многоразовые сумки и бутылки</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Экология и мир. Все права защищены.</p>
+            <p>Учебный проект для практики в вузе</p>
+        </div>
+    </footer>
+
+    <script src="ecology-script.js"></script>
+</body>
+</html>
