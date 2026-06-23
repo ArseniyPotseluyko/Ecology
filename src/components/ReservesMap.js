@@ -19,7 +19,7 @@ const ReservesMap = () => {
 
   const fetchReserves = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/reserves');
+      const response = await axios.get('/api/reserves');
       setReserves(response.data);
       setLoading(false);
     } catch (error) {

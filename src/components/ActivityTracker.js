@@ -14,7 +14,7 @@ const ActivityTracker = () => {
         const title = getPageTitle(location.pathname);
         
         if (title) {
-          await fetch(`http://localhost:5001/api/users/${user.id}/activity`, {
+          await fetch(`/api/users/${user.id}/activity`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

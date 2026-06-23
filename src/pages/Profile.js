@@ -5,7 +5,7 @@ import { useLanguage } from '../LanguageContext';
 import Breadcrumb from '../components/Breadcrumb';
 
 const LOCAL_STORAGE_KEY = 'ecology_user';
-const API = 'http://localhost:5001';
+const API = process.env.REACT_APP_API_URL || '';
 
 const Profile = () => {
   const { language } = useLanguage();

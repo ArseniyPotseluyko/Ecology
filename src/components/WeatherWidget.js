@@ -136,7 +136,7 @@ const WeatherWidget = ({ reserveId, reserveName }) => {
     const fetchWeather = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5001/api/reserves/${reserveId}/weather`);
+        const response = await fetch(`/api/reserves/${reserveId}/weather`);
         if (!response.ok) throw new Error('Failed to fetch weather');
         const data = await response.json();
         setWeather(data);

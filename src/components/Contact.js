@@ -39,7 +39,7 @@ const Contact = () => {
       }
     }
 
-    fetch('http://localhost:5001/api/feedback', {
+    fetch('/api/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecology-backend
+    restart: unless-stopped
+    environment:
+      - FRONTEND_URL=https://eco-world.oleshkus.dev
+      - BACKEND_URL=https://eco-world.oleshkus.dev
+    env_file:
+      - ./backend/.env
+    volumes:
+      - backend-db:/app/ecology.db
+      - backend-uploads:/app/uploads
+    expose:
+      - "5001"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecology-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  backend-db:
+  backend-uploads:

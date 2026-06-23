@@ -36,3 +36,14 @@ yarn-error.log*
 /public/videos/uploads/*
 !/public/videos/uploads/.gitkeep
 
+# Database
+backend/ecology.db
+backend/*.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+!backend/uploads/avatars/.gitkeep
+
+# Env files (секреты)
+.env
+backend/.env
+

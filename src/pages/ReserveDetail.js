@@ -42,7 +42,7 @@ const ReserveDetail = () => {
 
     const fetchReserve = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/reserves/${id}`);
+        const response = await axios.get(`/api/reserves/${id}`);
         if (!cancelled) {
           setReserve(response.data);
           setLoading(false);
@@ -55,7 +55,7 @@ const ReserveDetail = () => {
 
     const fetchAnimals = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/reserves/${id}/animals`);
+        const response = await axios.get(`/api/reserves/${id}/animals`);
         if (!cancelled) {
           setAnimals(response.data);
           setAnimalsLoading(false);
@@ -84,7 +84,7 @@ const ReserveDetail = () => {
 
     const loadFavoriteStateForUser = async (userId) => {
       try {
-        const res = await fetch(`http://localhost:5001/api/users/${userId}/favorites`);
+        const res = await fetch(`/api/users/${userId}/favorites`);
         const data = await res.json();
         if (cancelled) return;
         const currentId = Number(id);
@@ -110,7 +110,7 @@ const ReserveDetail = () => {
 
   const loadFavoriteState = async (userId) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/users/${userId}/favorites`);
+      const res = await fetch(`/api/users/${userId}/favorites`);
       const data = await res.json();
       const currentId = Number(id);
       const favorites = data.favorites || [];
@@ -130,11 +130,11 @@ const ReserveDetail = () => {
     try {
       if (isFavorite) {
         await fetch(
-          `http://localhost:5001/api/users/${user.id}/favorites/${reserveId}`,
+          `/api/users/${user.id}/favorites/${reserveId}`,
           { method: 'DELETE' }
         );
       } else {
-        await fetch(`http://localhost:5001/api/users/${user.id}/favorites`, {
+        await fetch(`/api/users/${user.id}/favorites`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ reserve_id: reserveId }),
@@ -156,7 +156,7 @@ const ReserveDetail = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5001/api/users/${user.id}/favorite-reserve`,
+        `/api/users/${user.id}/favorite-reserve`,
         {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },

@@ -1,7 +1,7 @@
 import React from 'react';
 import './AvatarDisplay.css';
 
-const API = 'http://localhost:5001';
+const API = process.env.REACT_APP_API_URL || '';
 
 const AvatarDisplay = ({ user, size = 'medium' }) => {
   const getInitials = (name) => {

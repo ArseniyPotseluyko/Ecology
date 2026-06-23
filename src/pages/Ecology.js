@@ -5,7 +5,7 @@ import { useLanguage } from '../LanguageContext';
 import Icon from '../components/Icon';
 import Breadcrumb from '../components/Breadcrumb';
 
-const API = 'http://localhost:5001';
+const API = process.env.REACT_APP_API_URL || '';
 
 const Ecology = () => {
   const location = useLocation();

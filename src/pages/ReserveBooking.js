@@ -37,8 +37,8 @@ const ReserveBooking = () => {
     const loadData = async () => {
       try {
         const [reserveRes, cabinsRes] = await Promise.all([
-          axios.get(`http://localhost:5001/api/reserves/${id}`),
-          axios.get(`http://localhost:5001/api/reserves/${id}/cabins`),
+          axios.get(`/api/reserves/${id}`),
+          axios.get(`/api/reserves/${id}/cabins`),
         ]);
         setReserve(reserveRes.data);
         setCabins(cabinsRes.data);
@@ -108,7 +108,7 @@ const ReserveBooking = () => {
 
     setSubmitting(true);
     try {
-      await axios.post(`http://localhost:5001/api/reserves/${id}/bookings`, {
+      await axios.post(`/api/reserves/${id}/bookings`, {
         cabin_name: selectedCabin,
         ...formData,
       });

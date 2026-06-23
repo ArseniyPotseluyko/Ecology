@@ -21,11 +21,17 @@ import time
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-# Явно разрешаем запросы с фронтенда на http://localhost:3000
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+
+BASE_DIR_EARLY = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(BASE_DIR_EARLY, ".env"))
+
+_frontend = os.environ.get("FRONTEND_URL", "http://localhost:3000").rstrip("/")
+_allowed_origins = [_frontend, "http://localhost:3000", "http://localhost:3001"]
+
+CORS(app, resources={r"/*": {"origins": _allowed_origins}})
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-load_dotenv(os.path.join(BASE_DIR, ".env"))
+load_dotenv(os.path.join(BASE_DIR, ".env"), override=False)
 DB_PATH = os.path.join(BASE_DIR, "ecology.db")
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads", "avatars")
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
